@@ -326,12 +326,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    result = isArray ? [] : {};
 	    for (key in root) {
 	      val = prune(root[key]);
-	      if (val != null) {
-	        if (isArray)
-	          result.push(val);
-	        else
-	          result[key] = val;
-	      }
+	      if (isArray)
+	        result.push(val);
+	      else if(val != null)
+	        result[key] = val;
+	      // if (val != null) {
+	      //   if (isArray)
+	      //     result.push(val);
+	      //   else
+	      //     result[key] = val;
+	      // }
 	    }
 
 	    if (Object.keys(result).length == 0)
@@ -734,7 +738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return parts.join('\n\n');
 	};
 
-	var FieldWrapper = React.createClass({displayName: "FieldWrapper",
+	var FieldWrapper = React.createClass({
 	  render: function() {
 	    var classes = [].concat(errorClass(this.props.errors) || [],
 	                            'form-element',
@@ -755,7 +759,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var SectionWrapper = React.createClass({displayName: "SectionWrapper",
+	var SectionWrapper = React.createClass({
 	  render: function() {
 	    var level = this.props.path.length;
 	    var classes = [].concat('form-section',
