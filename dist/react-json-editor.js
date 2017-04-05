@@ -110,8 +110,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	             errors: errors };
 	  },
 	  componentWillReceiveProps: function(props) {
-	    var values = props.values || this.state.values;
-	    var output = props.values || this.state.output;
+	    var values = props.values !== undefined || this.state.values;
+	    var output = props.values !== undefined || this.state.output;
 	    this.setState({
 	      values: values,
 	      output: output,
