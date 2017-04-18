@@ -330,9 +330,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    for (key in root) {
 	      val = prune(root[key]);
 	      if (isArray){
-	        if(isObject(val) && val.ISDELETE !== true) {
+	        if(!isObject(val)) {
 	          result.push(val);
-	        } else {
+	        } else if(val.ISDELETE !== true) {
 	          result.push(val);
 	        }
 	      }
