@@ -315,6 +315,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return result;
 	};
 
+	var isObject = function(arg) {
+	  return Object.prototype.toString.call(arg) === '[object Object]';
+	}
 
 	var prune = function(root) {
 	  var result, isArray, key, val
@@ -327,7 +330,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    for (key in root) {
 	      val = prune(root[key]);
 	      if (isArray){
-	        if(val.ISDELETE !== true) {
+	        if(isObject(val) && val.ISDELETE !== true) {
+	          result.push(val);
+	        } else {
 	          result.push(val);
 	        }
 	      }
